@@ -31,8 +31,8 @@ public class Main {
                 .distinct()
                 .filter(book -> book.getYear() > 2000)
                 .limit(3)
+                .map(Book::getYear)
                 .findFirst()
-                .map(Book::getYear) // получить год выпуска, если книга есть
                 .ifPresentOrElse(
                         year -> System.out.println("\n\nГод выпуска найденной книги: " + year),
                         () -> System.out.println("\n\nКниги после 2000 года отсутствуют.")
